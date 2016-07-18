@@ -17,6 +17,7 @@
                 prevLinkHtml: 'fa fa-chevron-left',
                 disableTimepicker: false,
                 disableClearButton: false,
+                disableSubmitButton: false,
                 defaultTime: null,
                 dayAbbreviations: ["Su", "M", "Tu", "W", "Th", "F", "Sa"],
                 dateFilter: null,
@@ -412,16 +413,16 @@
                 "</form></div>" +
                 "<div class='quickdate-popup-footer'>\n      " +
                 "<div class='quickdate-text-inputs'>\n      " +
-                //"<div class='quickdate-input-wrapper'>\n        " +
-                //"<label>Date</label>\n        " +
-                //"<input class='quickdate-date-input' ng-class=\"{'ng-invalid': inputDateErr}\" name='inputDate' type='text' ng-model='inputDate' placeholder='{{ datePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onDateInputTab()' />\n      " +
-                //"</div>\n      " +
+                    //"<div class='quickdate-input-wrapper'>\n        " +
+                    //"<label>Date</label>\n        " +
+                    //"<input class='quickdate-date-input' ng-class=\"{'ng-invalid': inputDateErr}\" name='inputDate' type='text' ng-model='inputDate' placeholder='{{ datePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onDateInputTab()' />\n      " +
+                    //"</div>\n      " +
                 "<div class='quickdate-input-wrapper' ng-hide='disableTimepicker'>\n        " +
                 "<label>Time</label>\n        " +
                 "<input class='quickdate-time-input' ng-class=\"{'ng-invalid': inputTimeErr}\" name='inputTime' type='text' ng-model='inputTime' placeholder='{{ timePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onTimeInputTab()'>\n      " +
                 "</div>\n    " +
                 "</div>\n    " +
-                "<a href='' class='quickdate-clear' tabindex='-1' ng-hide='disableClearButton' ng-click='selectDateFromInput(true)'>Submit</a>\n    " +
+                "<a href='' class='quickdate-clear' tabindex='-1' ng-hide='disableSubmitButton' ng-click='selectDateFromInput(true)'>Submit</a>\n    " +
                 "<a href='' class='quickdate-clear' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>Clear</a>\n    " +
                 "</div>\n  " +
                 "</div><div class='dateOverlay' ng-click='toggleCalendar()'></div>" +

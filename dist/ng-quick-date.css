@@ -71,9 +71,11 @@ table.quickdate-calendar {
   width: 100%;
   margin-top: 5px;
 }
+table.quickdate-calendar tr {transition: none !important;}
 table.quickdate-calendar th,
 table.quickdate-calendar td {
   padding: 5px;
+    transition: none !important;
 }
 table.quickdate-calendar td:hover {
   cursor: pointer;
