@@ -403,7 +403,7 @@
                 "</thead>\n      " +
                 "<tbody>\n        " +
                 "<tr ng-repeat='week in weeks'>\n          " +
-                "<td ng-click='selectDate(day.date, disableTimepicker) ng-class='{\"other-month\": day.other, \"disabled-date\": day.disabled, \"selected\": day.selected, \"is-today\": day.today}' ng-repeat='day in week'>{{day.date | date:'d'}}</td>\n        " +
+                "<td ng-click='selectDate(day.date, disableTimepicker)' ng-class='{\"other-month\": day.other, \"disabled-date\": day.disabled, \"selected\": day.selected, \"is-today\": day.today}' ng-repeat='day in week'>{{day.date | date:'d'}}</td>\n        " +
                 "</tr>\n      " +
                 "</tbody>\n    " +
                 "</table>\n    " +
