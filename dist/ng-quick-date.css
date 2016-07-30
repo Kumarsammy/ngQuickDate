@@ -6,6 +6,7 @@
 .quickdate-action-link div {
   display: inline;
 }
+.quickdate-button { cursor: pointer;}
 .quickdate-popup {
   z-index: 10;
   background-color: #fff;

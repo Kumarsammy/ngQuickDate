@@ -384,8 +384,8 @@
                     return initialize();
                 },
                 template: "<div class='quickdate'>\n  " +
-                "<a href='' ng-focus='toggleCalendar()' class='quickdate-button' title='{{hoverText}}'> \n" +
-                "<div ng-hide='iconClass' ng-bind-html='buttonIconHtml'></div>{{mainButtonStr}}</a>\n  " +
+                "<span ng-click='toggleCalendar()' class='quickdate-button' title='{{hoverText}}'> \n" +
+                "<div ng-hide='iconClass' ng-bind-html='buttonIconHtml'></div>{{mainButtonStr}}</span>\n  " +
                 "<div class='quickdate-popup' ng-class='{open: calendarShown}'>\n    " +
                 "<div class='quickdate-content'> \n" +
                 "<div class='quickdate-calendar-header'>\n      " +
@@ -403,7 +403,7 @@
                 "</thead>\n      " +
                 "<tbody>\n        " +
                 "<tr ng-repeat='week in weeks'>\n          " +
-                "<td ng-mousedown='selectDate(day.date, disableTimepicker)' ng-click='$event.preventDefault()' ng-class='{\"other-month\": day.other, \"disabled-date\": day.disabled, \"selected\": day.selected, \"is-today\": day.today}' ng-repeat='day in week'>{{day.date | date:'d'}}</td>\n        " +
+                "<td ng-click='selectDate(day.date, disableTimepicker) ng-class='{\"other-month\": day.other, \"disabled-date\": day.disabled, \"selected\": day.selected, \"is-today\": day.today}' ng-repeat='day in week'>{{day.date | date:'d'}}</td>\n        " +
                 "</tr>\n      " +
                 "</tbody>\n    " +
                 "</table>\n    " +
