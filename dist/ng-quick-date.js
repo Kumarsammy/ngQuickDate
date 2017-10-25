@@ -21,6 +21,8 @@
                 defaultTime: null,
                 dayAbbreviations: ["Su", "M", "Tu", "W", "Th", "F", "Sa"],
                 dateFilter: null,
+                submitCallback: null,
+                clearCallback: null,
                 showTodayTomorrow: false,
                 parseDateFunction: function (str) {
                     var seconds;
@@ -59,7 +61,10 @@
                 scope: {
                     dateFilter: '=?',
                     onChange: "&",
-                    required: '@'
+                    required: '@',
+                    closeOnSelect: "=",
+                    submitCallback: "=",
+                    clearCallback: "="
                 },
                 replace: true,
                 link: function (scope, element, attrs, ngModelCtrl) {
@@ -339,6 +344,9 @@
                                 scope.toggleCalendar(false);
                             }
                             scope.inputDateErr = false;
+                            if (scope.submitCallback != null) {
+                                scope.submitCallback(tmpDate);
+                            }
                             return scope.inputTimeErr = false;
                         } catch (_error) {
                             err = _error;
@@ -368,7 +376,11 @@
                         return refreshView();
                     };
                     scope.clear = function () {
-                        return scope.selectDate(null, true);
+                        var returnValue = scope.selectDate(null, true);
+                        if (scope.clearCallback != null) {		
+                            scope.clearCallback();		
+                        }		
+                        return value; 
                     };
                     scope.setToday = function () {
                         scope.selectDate(new Date(), true);
@@ -403,7 +415,7 @@
                 "</thead>\n      " +
                 "<tbody>\n        " +
                 "<tr ng-repeat='week in weeks'>\n          " +
-                "<td ng-click='selectDate(day.date, disableTimepicker)' ng-class='{\"other-month\": day.other, \"disabled-date\": day.disabled, \"selected\": day.selected, \"is-today\": day.today}' ng-repeat='day in week'>{{day.date | date:'d'}}</td>\n        " +
+                "<td ng-click='selectDate(day.date, closeOnSelect)' ng-class='{\"other-month\": day.other, \"disabled-date\": day.disabled, \"selected\": day.selected, \"is-today\": day.today}' ng-repeat='day in week'>{{day.date | date:'d'}}</td>\n        " +
                 "</tr>\n      " +
                 "</tbody>\n    " +
                 "</table>\n    " +
