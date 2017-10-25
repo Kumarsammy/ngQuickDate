@@ -63,8 +63,8 @@
                     onChange: "&",
                     required: '@',
                     closeOnSelect: "=",
-                    submitCallback: "=",
-                    clearCallback: "="
+                    submitCallback: "=?",
+                    clearCallback: "=?"
                 },
                 replace: true,
                 link: function (scope, element, attrs, ngModelCtrl) {
@@ -380,7 +380,7 @@
                         if (scope.clearCallback != null) {		
                             scope.clearCallback();		
                         }		
-                        return value; 
+                        return returnValue; 
                     };
                     scope.setToday = function () {
                         scope.selectDate(new Date(), true);
