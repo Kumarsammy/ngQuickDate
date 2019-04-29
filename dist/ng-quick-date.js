@@ -24,6 +24,7 @@
                 submitCallback: null,
                 clearCallback: null,
                 showTodayTomorrow: false,
+                showDateAsInput: false,
                 parseDateFunction: function (str) {
                     var seconds;
                     seconds = Date.parse(str);
@@ -425,10 +426,10 @@
                 "</form></div>" +
                 "<div class='quickdate-popup-footer'>\n      " +
                 "<div class='quickdate-text-inputs'>\n      " +
-                    //"<div class='quickdate-input-wrapper'>\n        " +
-                    //"<label>Date</label>\n        " +
-                    //"<input class='quickdate-date-input' ng-class=\"{'ng-invalid': inputDateErr}\" name='inputDate' type='text' ng-model='inputDate' placeholder='{{ datePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onDateInputTab()' />\n      " +
-                    //"</div>\n      " +
+                    "<div class='quickdate-input-wrapper' ng-if='showDateAsInput'>\n        " +
+                    "<label>Date</label>\n        " +
+                    "<input class='quickdate-date-input' ng-class=\"{'ng-invalid': inputDateErr}\" name='inputDate' type='text' ng-model='inputDate' placeholder='{{ datePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onDateInputTab()' />\n      " +
+                    "</div>\n      " +
                 "<div class='quickdate-input-wrapper' ng-hide='disableTimepicker'>\n        " +
                 "<label>Time</label>\n        " +
                 "<input class='quickdate-time-input' ng-class=\"{'ng-invalid': inputTimeErr}\" name='inputTime' type='text' ng-model='inputTime' placeholder='{{ timePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onTimeInputTab()'>\n      " +
