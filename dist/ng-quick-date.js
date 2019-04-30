@@ -6,7 +6,7 @@
     app.provider("ngQuickDateDefaults", function () {
         return {
             options: {
-                dateFormat: 'M/d/yyyy',
+                dateFormat: 'd/M/yyyy',
                 timeFormat: 'h:mm a',
                 labelFormat: null,
                 placeholder: '',
@@ -26,6 +26,9 @@
                 showTodayTomorrow: false,
                 showDateAsInput: false,
                 parseDateFunction: function (str) {
+					if (angular.isString(str)) {
+						str = str.replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3")
+					}
                     var seconds;
                     seconds = Date.parse(str);
                     if (isNaN(seconds)) {
@@ -130,7 +133,7 @@
                         date = ngModelCtrl.$modelValue ? parseDateString(ngModelCtrl.$modelValue) : null;
                         setupCalendarView();
                         setInputFieldValues(date);
-                        scope.mainButtonStr = date ? $filter('date')(date, scope.labelFormat) : scope.placeholder;
+                        scope.mainButtonStr = date ? $filter('date')(date, scope.labelFormat) : '';
                         return scope.invalid = ngModelCtrl.$invalid;
                     };
                     setInputFieldValues = function (val) {
@@ -426,7 +429,7 @@
                 "</form></div>" +
                 "<div class='quickdate-popup-footer'>\n      " +
                 "<div class='quickdate-text-inputs'>\n      " +
-                    "<div class='quickdate-input-wrapper' ng-if='showDateAsInput'>\n        " +
+                    "<div class='quickdate-input-wrapper' ng-class=\"{'hide': !showDateAsInput}\">\n    " +
                     "<label>Date</label>\n        " +
                     "<input class='quickdate-date-input' ng-class=\"{'ng-invalid': inputDateErr}\" name='inputDate' type='text' ng-model='inputDate' placeholder='{{ datePlaceholder }}' ng-enter=\"selectDateFromInput(true)\" ng-blur=\"selectDateFromInput(false)\" on-tab='onDateInputTab()' />\n      " +
                     "</div>\n      " +
